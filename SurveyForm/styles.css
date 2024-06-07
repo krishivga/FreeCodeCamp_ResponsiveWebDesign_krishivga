@@ -1,0 +1,19 @@
+body {
+  font-size: 14px;
+}
+label, button {
+  display: block;
+}
+
+fieldset {
+  width: 80vw;
+  border: none;
+}
+
+input {
+  display: inline-block;
+}
+
+textarea {
+  width: 15vw;
+}
