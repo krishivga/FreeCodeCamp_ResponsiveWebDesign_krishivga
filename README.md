@@ -55,7 +55,9 @@ Most tags require a closing tag, e.g. `<html>` requires `</html>`. If **self-clo
 	- `pattern` - Forces use of certain characters or sets of characters only in a password.`pattern="[a-z0-5]{8,}"`, this results in minimum length of 8, a to z allowed and numbers from 0 to 5 allowed
 - `<button>` - Creates a clickable button.
 - `<footer>` - Defines a footer for the HTML document
-- `<link>` - Defines the relationship between the current document and an external resource.
+- `<link>` - Defines the relationship between the current document and an external resource. 
+	- `rel` - Type of document being linked e.g. 'stylesheet'
+	- `href` - Link to the document e.g. 'styles.css'
 - `<div>` - Used to group sections of a web page into one singular block.
 	- `id` - ID that uniquely identifies this element
 - `<article>` - Specifies independent, self contained content. Stuff like blogs and articles.
@@ -65,8 +67,11 @@ Most tags require a closing tag, e.g. `<html>` requires `</html>`. If **self-clo
 		- `value` - Determines the value that the option sends back to the server when selected
 - `<textarea>` - Provides the user with an area of text to type long answers in.
 	- `rows` and `cols` - Increase the vertical and horizontal area of textarea
+- `<header>` - Provides a place to set the introductory information of a page, usually an image and a h1 tag.
 
-# CSS Tags reference
+# CSS Syntax Reference
+
+#css
 - `background-color` - Sets the background colour
 - `text-align` - Aligns the text to left, right or center.
 - `width` - Defines the width that the element takes.
@@ -98,24 +103,36 @@ Most tags require a closing tag, e.g. `<html>` requires `</html>`. If **self-clo
 	- The height and width of the shadow is determined by the height and width of the element it's applied to. You can also use an optional `spreadRadius` value to spread out the reach of the shadow.
 	- Blur radius creates a blur on the shadow to avoid sharp edges
 	- `spreadRadius (optional)` - allows the shadow to be expanded out further
+- `filter` - Adds a visual filter to change how the website looks.
+	- `blur(px)` - Creates a blur effect on the specified element
+- `border-radius` - Smoothens out edges of border.
+- `transform` - Moves an element in a way
+	- `rotate(deg)` - Rotates an element
+- `box-sizing`: Decides the setting for the arrangement and sizing of boxes (`border-box`, `content-box`).
+- `text-transform`: Changes property of text, such as making it all uppercase using (`uppercase`)
+- `flex-direction`: Determines the direction of the main and cross axiom for the flexbox (Values: `row`, `row-reverse`, `column`, `column-reverse`)
+- `flex-wrap`:  Determines whether children of the flexbox wrap or not to the next row/column.
+- `justify-content`: Determines how content is aligned along the main axis (values: Center)
+- `align-items`: Determines how content is aligned across the cross axis (values: Center)
+- `object-fit`: Modifies items in flex box to fit through stretching or cropping (value: `cover` - crops img).
+- `gap`: Referred to as gutter, provides a gap between each element in the flexbox (values: row-gap, column-gap)
 
-## Units
+# Units
 Instead of using percents for area, you can also use viewport height (abbreviated as vh) of which 1% is equal to 1% of the viewport height.
 `rem` determines size of things relative to font size of HTML document
-
-## Psuedo-Selectors
+# Psuedo-Selectors
 - `a:visited` - If the link has been clicked
 - `type selector:hover` - If the element has been hovered on
 - `a:active` - If the link is actively being clicked on
-
-## Colors
+- `.class::after` - Creates an element after the last 
+# Colors
 For colour manipulation, you can use the `rgb(r,g,b)` function. You can also use hexadecimal `#00FF00 (Green)` or hue, saturation and lightness `hsl(hue, saturation%, lightness%)` (note, for saturation and lightness the percentage is required).
 
 For opacity control in your colour selection, you may use RGBA which is the same except it has an extra argument for opacity `background-color: rgba(255,255,255,.5); (White)`. HSLA for hsl and you can add another two character set setting for hex (#00FF00FF (last two fs are the alpha))
 
 `linear-gradient(angle_direction deg,colour1 stop1, colour2 stop2, colourn stopn)` is a function that allows you to create linear gradients in CSS. The angle direction determines the angle in which the gradient will switch to another colour, and must be defined with a `deg` afterwards such as `90deg`. Colours can be defined in any viable CSS method such as rgb, hsl or hex and stops can be added to determine how much of the gradient is being used up by one colour. More than two colours can be added, but two is the minimum.
 
-# CSS Styling reference
+# CSS Tags reference
 Most tags require a closing tag, e.g. `<html>` requires `</html>`. If **self-closing** is mentioned, the tag does not require a closing tag.
 - `<style>` - Creates a stylesheet for CSS styling. Not necessary if doing CSS on a separate CSS only file.
 - `/* */` - Comment
@@ -183,3 +200,12 @@ You can select an id with:
 property: value;
 }
 ```
+
+You can apply a setting to *everything* by using * as a selector:
+```CSS
+* {
+	property: value;
+}
+```
+
+
