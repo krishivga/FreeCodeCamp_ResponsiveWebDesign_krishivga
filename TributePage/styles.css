@@ -1,0 +1,40 @@
+* {
+  background-color: #3E362E;
+  color: #fffff2;
+  font-size: 16px;
+}
+
+#image {
+  max-width: 100%;
+  width: 70%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#title, #img-caption {
+  text-align: center;
+  font-family: "Times New Roman";
+}
+
+#title {
+  font-size: 2rem;
+}
+
+#img-caption {
+  margin: 10px 0 0 0;
+  font-size: 1.2rem;
+}
+
+#tribute-info {
+  text-align: center;
+}
+
+#tribute-link-text {
+  text-align: center;
+}
+
+#tribute-link:hover p {
+  content: "https://capone.mtsu.edu/jcomas/nietzsche/chronology.html";
+}
