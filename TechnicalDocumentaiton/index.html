@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>Navigation</header>
+      <a class="nav-link" href="#Introduction_to_CSS">Introduction to CSS</a>
+      <a class="nav-link" href="#CSS_Formatting_and_Selectors">CSS Formatting and Selectors</a>
+      <a class="nav-link" href="#Measurements">Measurements</a>
+      <a class="nav-link" href="#Font_and_Sizing">Font and Sizing</a>
+      <a class="nav-link" href="#Colours_and_Display">Colours and Display</a>
+      <a class="nav-link" href="#Margins,_Padding_and_Alignment">Margins, Padding and Alignment</a>
+      <a class="nav-link" href="#Borders_and_Other">Borders and Other</a>
+      <a class="nav-link" href="#Boxes">Boxes</a>
+      <a class="nav-link" href="#Flexbox">Flexbox</a>
+      <a class="nav-link" href="#Colour_Codes_and_Gradients">Colour Codes and Gradients</a>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="Introduction_to_CSS">
+        <header id="introduction"><h1>Introduction to CSS</h1></header>
+      </section>
+      <section class="main-section" id="CSS_Formatting_and_Selectors">
+        <header id="selectors"><h1>CSS Formatting and Selectors</h1></header>
+        <p>The most basic format for a CSS &#39;styling&#39; is selecting an element, selecting a property of that element and giving it a value.</p>
+<pre><code class="lang-CSS"><span class="hljs-selector-tag">element</span> {
+    <span class="hljs-attribute">property</span>: value;
+}
+</code></pre>
+<p>We can select multiple elements using commas.</p>
+<pre><code class="lang-CSS"><span class="hljs-selector-tag">element1</span>, <span class="hljs-selector-tag">element2</span>, <span class="hljs-selector-tag">element3</span> {
+    <span class="hljs-attribute">property</span>: value;
+}
+</code></pre>
+<p>We can select elements that are <em>children</em> (inside another element) by using &gt; operator or by simply referencing them as sub-elements. The program below only targets elements of type C which are within elements of type B which are in elements of type A. Multiple elements can still be listed out as shown in the second example.</p>
+<pre><code class="lang-CSS"><span class="hljs-selector-tag">element_a</span> &gt; <span class="hljs-selector-tag">element_b</span> &gt; <span class="hljs-selector-tag">element_c</span> {
+    <span class="hljs-attribute">property</span>: value;
+}
+</code></pre>
+<p>This is easily explained with an example.</p>
+<pre><code class="lang-CSS"><span class="hljs-selector-tag">form</span> &gt; <span class="hljs-selector-tag">label</span> &gt; <span class="hljs-selector-tag">p</span> {
+    <span class="hljs-attribute">color</span>: black;
+}
+</code></pre>
+<h3 id="advanced-selectors">Advanced selectors</h3>
+<p>We can select the IDs and the classes of specific elements by referencing them.</p>
+<pre><code class="lang-CSS"><span class="hljs-selector-id">#ID</span> {
+    <span class="hljs-attribute">property</span>: value;
+}
+
+<span class="hljs-selector-class">.class</span> {
+    <span class="hljs-attribute">property</span>: value;
+}
+</code></pre>
+<p>Additionally, we can also filter our selection by a certain element property.</p>
+<pre><code class="lang-CSS"><span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type="submit"]</span> {
+    <span class="hljs-attribute">property</span>: value;
+}
+</code></pre>
+<p>You can also decide to select <em>everything</em> using the * selector.</p>
+<pre><code class="lang-CSS">* {
+    <span class="hljs-attribute">property</span>: value
+}
+</code></pre>
+<p>A few more advanced selectors include <code>::before</code> and <code>::after</code> that add content before and after each <code>&lt;p&gt;</code> element.</p>
+<pre><code class="lang-CSS"><span class="hljs-selector-tag">p</span><span class="hljs-selector-pseudo">::before</span> {
+    <span class="hljs-attribute">property</span>: value;
+}
+</code></pre>
+<h2 id="list-of-selectors">List of Selectors</h2>
+<h3 id="psuedo-selectors">Psuedo-selectors</h3>
+<p>We can filter out by class of a certain element using the <code>element[class~=&quot;classname&quot;]</code> selector.</p>
+<pre><code class="lang-CSS">span[<span class="hljs-class"><span class="hljs-keyword">class</span>~</span>=<span class="hljs-string">"special_text"</span>] {
+
+}
+</code></pre>
+      </section>
+      <section class="main-section" id="Measurements">
+        <header id="measurements"><h1>Measurements</h1></header>
+        <p><code>percent</code> - Uses percentage of parent block, if there is no parent then it&#39;s the HTML document. e.g. <code>55%</code></p>
+<p><code>vw</code>/<code>vh</code> - Uses percentage of the entire viewport/viewable space. e.g. <code>55wv</code> is 55%</p>
+<p><code>rem</code> - Compares in ratios to the font size of the HTML document. For example, if the font is 10 and the size is set as <code>0.8rem</code>, that means the size of the font will actually be 8. </p>
+<p><code>em</code> - Compares in ratios to the current font size of the parent element. Functions very similar to <code>rem</code>.</p>
+<p>For most margins, padding and borders, you can remove them by putting a 0 (no need for units).</p>
+      </section>
+      <section class="main-section" id="Font_and_Sizing">
+        <header id="font"><h1>Font and Sizing</h1></header>
+        <p><code>width</code> - Defines the width that the element takes.</p>
+<p><code>height</code> - Set the height for a block</p>
+<p><code>max-width</code>/<code>min-width</code>,<code>max-height/min-height</code> - Provides a maximum/minimum width/height for an element</p>
+<p><code>aspect-ratio</code>: Sets the aspect ratio for the element.</p>
+<p><code>font-family</code> - Sets a font family type for text (serif etc)</p>
+<p><code>font-style</code> -  Sets a font style for text </p>
+<ul>
+<li><code>bold</code></li>
+<li><code>italic</code></li>
+<li><code>underline</code></li>
+</ul>
+<p><code>font-size</code> - Sets the font size</p>
+<p><code>text-transform</code>: Changes property of text, such as making it all uppercase using (<code>uppercase</code>)</p>
+<p><code>font-weight</code>: Determines how bold the text is.</p>
+<ul>
+<li><code>normal</code> - Normal text</li>
+<li><code>bold</code> - Bold text</li>
+</ul>
+<p><code>letter-spacing</code>: Changes the spacing of letters in an element</p>
+<p><code>content</code> - Adds text, usually in specific cases with advanced selectors.</p>
+      </section>
+      <section class="main-section" id="Colours_and_Display">
+        <header id="colors"><h1>Colours and Display</h1></header>
+        <p><code>background-color</code> - Sets the background colour</p>
+<p><code>background</code> - Accepts both image and color.</p>
+<p><code>background-image</code> - Defines a background image. Usually formatted as <code>background-image: url(url-link)</code></p>
+<p><code>color</code> - Sets color for text</p>
+<p><code>opacity</code> - Controls how transparent an element is (1 to 100)</p>
+<p><code>display</code> - Decides the rendering (display) behavior of a element </p>
+<ul>
+<li><code>inline-block</code> - Keeps elements within this setting in the same line</li>
+<li><code>flex</code> - Enables CSS Flexbox</li>
+</ul>
+<p><code>clip-path</code> - Defines a shape that determines the &#39;visible&#39; part of a HTML box. </p>
+<ul>
+<li><code>basic-shape</code></li>
+<li><code>margin-box</code></li>
+<li><code>border-box</code></li>
+<li><code>padding-box</code></li>
+<li><code>content-box</code></li>
+<li><code>fill-box</code></li>
+<li><code>stroke-box</code></li>
+<li><code>view-box</code></li>
+</ul>
+      </section>
+      <section class="main-section" id="Margins,_Padding_and_Alignment">
+        <header id="alignment"><h1>Margins, Padding and Alignment</h1></header>
+        <p><code>margin-left</code>,<code>margin-right</code>,<code>margin-top</code>,<code>margin-bottom</code> -  Sets the margin on each side of the block. Generally recommended to set it to <code>auto</code>.</p>
+<p><code>margin</code>, <code>padding</code> - Shorthand to apply margin and padding to all sides respectively.
+There are three ways to write <code>margin</code> and <code>padding</code> shorthand:</p>
+<ol>
+<li>One value for all, <code>margin: 5px;</code>, which applies a 5px margin on all sides. Format: <code>margin: all_value;</code></li>
+<li>One value for top and bottom, one value for left and right, <code>margin: 3px 0;</code>. Format: <code>margin: top_bottom left_right;</code></li>
+<li>One value for top, one for right, one for bottom and one for left, <code>margin: 3px 5px 10px 0;</code>. Format: <code>margin: top_value right_value bottom_value left_value;</code></li>
+</ol>
+<p><code>position</code>: Determines the format that the element follows when being positioned.</p>
+<ul>
+<li><code>static</code>: Follows the Normal Flow of the document</li>
+<li><code>relative</code>: Positioned according to Normal Flow of the document and then offset (using left, right, bottom and top) relative to itself (using itself as a reference to offset against, like moving from one position to another with the distance of the new position being a measured distance and direction from the original)</li>
+<li><code>absolute</code>: Position is removed from the Normal Flow of the document. Element is positioned to its closest positioned ancestor or containing block. Final position is determined by left, right, top and bottom.</li>
+<li><code>fixed</code>: Position is removed from the Normal Flow of the document. Element is positioned relative to its containing block. Final position is determined by left, right, top and bottom.</li>
+<li><code>sticky</code>: Positioned according to normal flow of the document and then offset relative to its nearest scrolling ancestor or containing block.</li>
+</ul>
+<p><code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code> - Can be used to create an offset for the element based on it&#39;s position setting.</p>
+<p><code>vertical-align</code> - Determines the alignment of an element on the vertical axis</p>
+<ul>
+<li><code>top</code></li>
+<li><code>bottom</code></li>
+</ul>
+<p><code>text-align</code> - Aligns the text to left, right or center.</p>
+<p><code>z-index</code> - Determines the &#39;layer&#39; that the element is on. Higher layers appear first. All elements start out on the 0th layer.</p>
+<p><code>float</code> - Can be used to align images relative to containers.</p>
+<ul>
+<li><code>left</code></li>
+<li><code>right</code></li>
+</ul>
+      </section>
+      <section class="main-section" id="Borders_and_Other">
+        <header id="borders"><h1>Borders and Other</h1></header>
+        <p><code>border-left-width</code>,<code>border-right-width</code>, <code>border-top-width</code>, <code>border-bottom-width</code>, <code>border-width</code>: Define the width of the borders of an element</p>
+<p><code>border-style</code>, <code>border-left-style</code>,<code>border-right-style</code>, <code>border-top-style</code>, <code>border-bottom-style</code> : Define the type of border (solid, dotted, dashed etc)</p>
+<p><code>border-left</code>, <code>border-right</code>,<code>border-top</code>, <code>border-bottom</code> and <code>border</code> - Allows for shorthand by setting boder width, style and colour at the same time. E.g. <code>border: 5px dotted black;</code>. Format: <code>border: border_width border_style border_colour;</code></p>
+<p><code>border-collapse</code>: Determines whether the cells in a table should have separate borders from the table itself or should they collapse into one single border that is the tables&#39;.</p>
+<ul>
+<li><code>separate</code>: Keeps the cell borders separate from the borders of the table.</li>
+<li><code>collapse</code>: Collapses the cell borders and merges them with the table borders.</li>
+</ul>
+<p><code>border-radius</code> - Smoothens out edges of border.</p>
+<p><code>filter</code> - Adds a visual filter to change how the website looks.</p>
+<ul>
+<li><code>blur(px)</code> - Creates a blur effect on the specified element</li>
+</ul>
+      </section>
+      <section class="main-section" id="Boxes">
+        <header id="boxes"><h1>Boxes</h1></header>
+        <p><code>box-shadow: offsetx offsety blurRadius(optional) color;</code> - Creates a shadow for the block/box of the element.</p>
+<ul>
+<li>Both <code>offsetX</code> and <code>offsetY</code> accept number values in <code>px</code> and other CSS units</li>
+<li>A positive <code>offsetX</code> value moves the shadow right and a negative value moves it left</li>
+<li>A positive <code>offsetY</code> value moves the shadow down and a negative value moves it up</li>
+<li>If you want a value of zero (<code>0</code>) for any or both <code>offsetX</code> and <code>offsetY</code>, you don&#39;t need to add a unit. Every browser understands that zero means no change.</li>
+<li>The height and width of the shadow is determined by the height and width of the element it&#39;s applied to. You can also use an optional <code>spreadRadius</code> value to spread out the reach of the shadow.</li>
+<li>Blur radius creates a blur on the shadow to avoid sharp edges</li>
+<li><code>spreadRadius (optional)</code> - allows the shadow to be expanded out further</li>
+</ul>
+<p><code>transform</code> - Moves an element in a way</p>
+<ul>
+<li><code>rotate(deg)</code> - Rotates an element</li>
+</ul>
+<p><code>box-sizing</code>: Decides the setting for the arrangement and sizing of boxes (<code>border-box</code>, <code>content-box</code>).</p>
+      </section>
+      <section class="main-section" id="Flexbox">
+        <header id="flexbox"><h1>Flexbox</h1>
+        </header>
+        <p><code>flex-direction</code>: Determines the direction of the main and cross axiom for the flexbox (Values: <code>row</code>, <code>row-reverse</code>, <code>column</code>, <code>column-reverse</code>)</p>
+<p><code>flex-wrap</code>:  Determines whether children of the flexbox wrap or not to the next row/column.</p>
+<p><code>justify-content</code>: Determines how content is aligned along the main axis (values: center, flex-end)</p>
+<p><code>align-items</code>: Determines how content is aligned across the cross axis (values: Center, flex-end)</p>
+<p><code>object-fit</code>: Modifies items in flex box to fit through stretching or cropping (value: <code>cover</code> - crops img).</p>
+<p><code>gap</code>: Referred to as gutter, provides a gap between each element in the flexbox (values: row-gap, column-gap)</p>
+        </section>
+      <section class="main-section" id="Colour_Codes_and_Gradients">
+        <header id="colorcodes"><h1>Colour Codes and Gradients</h1></header>
+        <p>There are three main ways to define colour in CSS:</p>
+<ol>
+<li>Red Green Blue (RGB) - Uses the function <code>rgb(red,green,blue)</code> to set the colour values based on Red, Green and Blue. Each value is from 0 to 255.</li>
+<li>Hue, Saturation and Lightness (HSL) - Uses the function <code>hsl(hue, saturation%, lightness%)</code> to set the colour based on HSL values. Hue is from 0 to 360 with 0 is Red, 120 is Green and 240 is Blue. Saturation and Lightness are in percentages of 100.</li>
+<li>Hexadecimal - Uses the function <code>#000000</code> where each pair of zeroes represents Red, Green and Blue (equivalent of <code>#RRGGBB</code>). Each Hexadecimal value is between 0 to F (which means 0 to 9 and then A to F).</li>
+</ol>
+<p>Opacity control can be added using alpha values.</p>
+<ol>
+<li>Red, Green, Blue and Alpha (RGBA) - Uses <code>rgba(r,g,b,a)</code> to set opacity and colour values. Alpha values are from 0 to 1.</li>
+<li>Hue, Saturation, Lightness and Alpha (HSLA) - Uses <code>hsla(hue, saturation%, lightness%, alpha%)</code> where alpha is from 0 to 100.</li>
+<li>Hexadecimal - Uses two more values to represent the alpha values <code>#FFFFFFFF</code> or <code>#RRGGBBAA</code>.</li>
+</ol>
+<p><code>linear-gradient(angle_direction deg, colour1 stop1%, colour2 stop2%, colourx stopx%)</code> is a function that allows you to create linear gradients in CSS. </p>
+<ul>
+<li><code>angle_direction</code> - Describes the degree at which the gradient &#39;curves&#39; or changes. Must have a deg after the numbers to signify being a degree e.g. <code>95deg</code></li>
+<li><code>colour1 stop1%</code>,<code>colour2 stop2%</code>...<code>colourx stopx%</code> - Determine the colour of that segment of the gradient and at what &#39;part&#39; of the gradient does it stop showing the colour and focuses on the next. For example, if <code>red 50%</code> is the value, that means the colour red will be shown by the gradient until 50% of the space is covered, then it will blend into the other colour.  </li>
+<li><code>angle_direction deg</code>, and two colours are necessary (the stops aren&#39;t). The rest of the specifications are optional.</li>
+<li>Colours can be defined by any of the in CSS.</li>
+</ul>
+      </section>
+      </section>
+    </main>
+  </body>
+</html>
