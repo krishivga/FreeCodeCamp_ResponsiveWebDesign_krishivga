@@ -1,0 +1,35 @@
+* {
+  background-color:#073642;
+  color: #93a1a1;
+  font-family: verdana;
+}
+
+h1, h2, h3 {
+  color: #2aa198;
+}
+
+nav {
+  position: fixed;
+  float: left;
+  height: 100vw;
+  width: 20vw;
+  border-right: 2px solid #586e75;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: bold;
+
+}
+
+main {
+  float: right;
+  width: 70vw;
+}
+
+@media (min-width: 400px) {
+  
+}
